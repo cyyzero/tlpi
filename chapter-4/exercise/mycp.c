@@ -1,5 +1,5 @@
 /*
-* 联系 4-2
+* 练习 4-2
 * 简单实现cp，命令格式  cp [src-file] [dest-file]
 * cp - copy files and directories
 */
