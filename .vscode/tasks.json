@@ -4,7 +4,7 @@
 	"version": "2.0.0",
 	"command": "gcc",
 	"args": [
-		"-g","-std=c11", "${file}", "-o", "${fileDirname}/${fileBasenameNoExtension}"
+		"-g","-std=c11", "${file}", "-o", "${fileDirname}/${fileBasenameNoExtension}", "-ltlpi"
 	],
 	"problemMatchers": [
 		"$gcc"
