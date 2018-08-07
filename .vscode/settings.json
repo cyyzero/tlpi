@@ -1,5 +1,6 @@
 {
 	"files.associations": {
-		"tlpi_hdr.h": "c"
+		"tlpi_hdr.h": "c",
+		"unistd.h": "c"
 	}
 }
