@@ -39,9 +39,9 @@ static inline uid_t user_id_from_name(const char* name)
 static inline char * group_name_from_id(gid_t gid)
 {
     struct group *grp;
-
-    grp = getgrnam(gid);
-    return gid == NULL ? NULL : grp->gr_name;
+    
+    grp = getgrgid(gid);
+    return grp == NULL ? NULL : grp->gr_name;
 }
 
 // Return GID corresponding to 'name', or -1 or error
@@ -53,13 +53,13 @@ static inline gid_t group_id_from_name(const char* name)
 
     char *endptr;
 
-    if (name == NULL || *name == "\0")
+    if (name == NULL || *name == '\0')
         return -1;
 
     gid = strtol(name, &endptr, 10);
 
-    if (*endptr == "\0")
-        return g;
+    if (*endptr == '\0')
+        return gid;
 
     grp = getgrnam(name);
     if (grp == NULL)
