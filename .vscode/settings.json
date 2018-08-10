@@ -1,6 +1,10 @@
 {
 	"files.associations": {
 		"tlpi_hdr.h": "c",
-		"unistd.h": "c"
+		"unistd.h": "c",
+		"dirent.h": "c",
+		"stdbool.h": "c",
+		"cstdbool": "c",
+		"stdio.h": "c"
 	}
 }
