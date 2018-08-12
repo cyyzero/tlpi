@@ -54,19 +54,20 @@ int main(int argc, char *argv[])
     if (fd == -1)
         errExit("open");
 
+
     int cnt = 0;
     while ((number_bytes = read(fd, buffer, BUFFER_SIZE)) > 0)
     {
         //printf("cnt :%d\n", cnt);
         //puts(buffer);
         count_lines(buffer, cnt * BUFFER_SIZE, offsets, number_lines, &current_index);
-        cnt++;
+        ++cnt;
     }
     // for(int i = 0; i < number_lines; ++i)
     //     printf("%d ", offsets[i]);
     // printf("curr : %d\n", current_index);
     // printf("\n");
-    if (lseek(fd, offsets[(current_index+number_lines) % number_lines] + 1, SEEK_SET) == -1)
+    if (lseek(fd, (current_index >= number_lines) ? (offsets[(current_index+number_lines) % number_lines] + 1) : current_index, SEEK_SET) == -1)
         errExit("lseek");
     while ((number_bytes = read(fd, buffer, BUFFER_SIZE)) > 0)
         write(STDOUT_FILENO, buffer, number_bytes);
