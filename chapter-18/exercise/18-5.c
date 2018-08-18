@@ -38,8 +38,6 @@ char *my_getcwd_helper(char *buf, size_t size, size_t *i)
                 break;
             }
         }
-        puts(dir->d_name);
-    printf("\n");
 
         len = strlen(dir->d_name);
         *i += (len+1);
@@ -47,7 +45,7 @@ char *my_getcwd_helper(char *buf, size_t size, size_t *i)
             goto close_and_return;
         sprintf(b, "%s/", dir->d_name);
         //puts(b);
-        if (strcmp(dir->d_name, "..") == 0)
+        if (strcmp(dir->d_name, "..") == 0 || strcmp(dir->d_name, "." == 0))
         {
             strcpy(buf, "/");
             ++(*i);
