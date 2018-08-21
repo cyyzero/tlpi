@@ -40,7 +40,7 @@ static inline int print_pending_sigs(FILE *of, const char *msg)
 {
     sigset_t pending_sigs;
 
-    if (msg == NULL)
+    if (msg != NULL)
         fprintf(of, "%s", msg);
 
     if (sigpending(&pending_sigs) == -1)
