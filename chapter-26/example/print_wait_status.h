@@ -1,3 +1,5 @@
+#ifndef PRINT_WAIT_STATUS_H
+#define PRINT_WAIT_STATUS_H
 #define _GNU_SOURCE
 #include <string.h>
 #include <sys/wait.h>
@@ -36,3 +38,4 @@ static inline void print_wait_status(const char *msg, int status)
         printf("what happened to this child? (status=%x)\n", (unsigned int)status);
     }
 }
+#endif
