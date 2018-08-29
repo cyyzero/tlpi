@@ -5,6 +5,11 @@
 		"dirent.h": "c",
 		"stdbool.h": "c",
 		"cstdbool": "c",
-		"stdio.h": "c"
+		"stdio.h": "c",
+		"signal.h": "c",
+		"types.h": "c",
+		"print_wait_status.h": "c",
+		"stdarg.h": "c",
+		"cstdarg": "c"
 	}
 }
