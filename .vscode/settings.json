@@ -10,6 +10,7 @@
 		"types.h": "c",
 		"print_wait_status.h": "c",
 		"stdarg.h": "c",
-		"cstdarg": "c"
+		"cstdarg": "c",
+		"pthread.h": "c"
 	}
 }
