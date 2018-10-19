@@ -19,6 +19,6 @@ struct request
 struct response
 {
     int seq_num;
-}
+};
 
 #endif
