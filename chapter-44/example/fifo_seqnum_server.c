@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
         }
 
         resp.seq_num = seq_num;
-        if (write(client_fd, &req, sizeof(struct response)) != sizeof(struct response))
+        if (write(client_fd, &resp, sizeof(struct response)) != sizeof(struct response))
             fprintf(stderr, "Error writing to FIFO %s\n", client_fifo);
         if (close(client_fd) == -1)
             errMsg("close");
