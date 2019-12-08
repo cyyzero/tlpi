@@ -2,7 +2,7 @@
 
 ## 文件夹组织结构
 
-* tlpi-dist：从[这本书的官网](http://www.man7.org/tlpi/)下载的源码(我已经编译过)
+* tlpi-dist：从[这本书的官网](http://www.man7.org/tlpi/)下载的源码
 * chapter-x：第x章节
 	* example：书中例子
 	* exercise：书后习题
@@ -13,29 +13,35 @@
 * get_num.h            声明了本书自定义的数值提取函数
 * tlpi_hdr.h           包含了后续需用到的系统调用头文件
 
-由于存在3个头文件以及2个实现，每次编译时必须对实现也进行编译，为方便后续学习，采用将头文件复制到默认的编译器寻找目录下，并将实现打包成静态库.
+由于存在3个头文件以及2个实现，每次编译时必须对实现也进行编译，为方便后续学习，将头文件复制到默认的编译器寻找目录下，并将实现打包成静态库.
 
-第一步：下载本书所给的源码文件
-```
-$ wget "http://man7.org/tlpi/code/download/tlpi-161214-dist.tar.gz"
-```
+- 第一步：下载本书所给的源码文件
 
-第二步：解压后，make编译
-```
-$ tar -zxvf tlpi-161214-dist.tar.gz
-$ cd tlpi-dist/
-$ make -j
-```
-第三步：拷贝头文件至系统目录
-```
-$ cd lib/
-$ sudo cp tlpi_hdr.h /usr/local/include/
-$ sudo cp get_num.h /usr/local/include/
-$ sudo cp error_functions.h /usr/local/include/
-$ sudo cp ename.c.inc /usr/local/include/
-```
+	```
+	$ wget "http://man7.org/tlpi/code/download/tlpi-161214-dist.tar.gz"
+	```
+
+- 第二步：解压后，make编译
+
+	```
+	$ tar -zxvf tlpi-161214-dist.tar.gz
+	$ cd tlpi-dist/
+	$ make -j
+	```
+
+- 第三步：拷贝头文件至系统目录
+
+	```
+	$ cd lib/
+	$ sudo cp tlpi_hdr.h /usr/local/include/
+	$ sudo cp get_num.h /usr/local/include/
+	$ sudo cp error_functions.h /usr/local/include/
+	$ sudo cp ename.c.inc /usr/local/include/
+	```
+
 以后每次编译包含上述四个头文件的代码的时候我都手动链接静态库。
 以编译 example.c 为例：
+
 ```
 $ gcc example.c -o example -ltlpi
 ```
